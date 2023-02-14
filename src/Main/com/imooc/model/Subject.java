@@ -1,9 +1,14 @@
 package imooc.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Subject {
     private String subjectName;
     private String subjectNumber;
     private int subjectLife;
+
+    private List<Student> studentList;
 
     public Subject() {
     }
@@ -12,6 +17,13 @@ public class Subject {
         this.subjectName = subjectName;
         this.subjectNumber = subjectNumber;
         this.setSubjectLife(subjectLife);
+    }
+
+    public Subject(String subjectName, String subjectNumber, int subjectLife, List<Student> studentList) {
+        this.subjectName = subjectName;
+        this.subjectNumber = subjectNumber;
+        this.setSubjectLife(subjectLife);
+        this.setStudentList(studentList);
     }
 
     public String getSubjectName() {
@@ -43,6 +55,15 @@ public class Subject {
         return subjectLife;
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public List<Student> setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+        return this.studentList;
+    }
+
     @Override
     public String toString() {
         return "学校专业{" +
@@ -51,4 +72,14 @@ public class Subject {
                 ", 专业年制=" + subjectLife +
                 '}';
     }
+
+    public void add(Student student) {
+        this.studentList.add(student);
+    }
+
+    public void diaplayStudentNum() {
+        System.out.println("报名" + this.getSubjectName() + "的学生有" + this.studentList.size() + "个");
+    }
+
+
 }

@@ -1,8 +1,10 @@
 package imooc.model;
 
+import java.util.List;
+
 public class Student {
     private String studentName;
-    private String studentNunber;
+    private String studentNumber;
     private String studentGender;
     private int studentAge;
 
@@ -11,7 +13,7 @@ public class Student {
 
     public Student(String studentName, String studentNunber, String studentGender, int studentAge) {
         this.studentName = studentName;
-        this.studentNunber = studentNunber;
+        this.studentNumber = studentNunber;
         this.studentGender = studentGender;
         this.setStudentAge(studentAge);
     }
@@ -24,12 +26,12 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public String getStudentNunber() {
-        return studentNunber;
+    public String getStudentNumber() {
+        return studentNumber;
     }
 
-    public void setStudentNunber(String studentNunber) {
-        this.studentNunber = studentNunber;
+    public void setStudentNumber(String studentNumber) {
+        this.studentNumber = studentNumber;
     }
 
     public String getStudentGender() {
@@ -57,9 +59,22 @@ public class Student {
     public String toString() {
         return "学生信息{" +
                 "学生姓名='" + studentName + '\'' +
-                ", 学生编号='" + studentNunber + '\'' +
+                ", 学生编号='" + studentNumber + '\'' +
                 ", 学生性别='" + studentGender + '\'' +
                 ", 学生年龄=" + studentAge +
                 '}';
     }
+
+    public String introduction(Subject mysubject) {
+        return "学生信息{" +
+                "学生姓名='" + studentName + '\'' +
+                ", 学生编号='" + studentNumber + '\'' +
+                ", 学生性别='" + studentGender + '\'' +
+                ", 学生年龄=" + studentAge + '\'' +
+                ", 专业名称=" + mysubject.getSubjectName() + '\'' +
+                ", 专业学制=" + mysubject.getSubjectLife() + "年" +
+                '}';
+    }
+
+
 }
